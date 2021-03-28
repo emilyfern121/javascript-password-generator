@@ -30,12 +30,12 @@ var allOptions = [];
 
 var passwordLength=prompt("How many characters would you like your password to have?");
 
-  if (passwordLength <= 10) {
+  if (passwordLength >= 8) {
     console.log(passwordLength);
     allOptions.push("");
   }
   
-  var specialCharacter=confirm("Click OK to confirm including special characters.")
+var specialCharacter=confirm("Click OK to confirm including special characters.")
   
   if (specialCharacter) {
     console.log(specialCharacter);
@@ -43,21 +43,21 @@ var passwordLength=prompt("How many characters would you like your password to h
   
   }
   
-  var numeric=confirm("Click OK to confirm numeric characters.");
+var numeric=confirm("Click OK to confirm numeric characters.");
   
   if (numeric) {
     console.log(numeric);
     allOptions.push(1,2,3,4,5,6,7,8,9);
   }
   
-  var lowercase=confirm("Click OK to confirm lowercase characters.");
+var lowercase=confirm("Click OK to confirm lowercase characters.");
   
   if (lowercase) {
     console.log(lowercase);
     allOptions.push("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
   }
   
-  var uppercase=confirm("Click OK to confirm uppercase characters.");
+var uppercase=confirm("Click OK to confirm uppercase characters.");
   
   if (uppercase) {
     console.log(uppercase);
@@ -72,7 +72,18 @@ function writePassword() {
 
 }
 
+// function to generate random number 
+function generateRandomNumber(maxValue) {
+  var randomNumber=Math.random();
+  var result=Math.floor(randomNumber * maxValue);
+  return result;
+}
 
+// function to generate random array
+function getRandomElementFromArray(array) {
+  var randomPosition=generateRandomNumber(array.length);
+  return array[randomPosition];
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
